@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Spring
 
 class DiceViewController: UIViewController {
     
-    @IBOutlet var diceImageView: UIImageView!
+    @IBOutlet var diceImageView: SpringImageView!
     
     private let dice = Dice()
     
@@ -35,6 +36,14 @@ class DiceViewController: UIViewController {
     }
     
     private func updateDiceImage() {
-        diceImageView.image = dice.result.image
+        diceImageView.animation = "pop"
+        diceImageView.curve = "easeIn"
+        diceImageView.force =  0.3
+        diceImageView.duration =  0.7
+        diceImageView.animate()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.diceImageView.image = self.dice.result.image
+        })
     }
 }

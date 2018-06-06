@@ -62,6 +62,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="343" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BXc-fH-tv6"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2k1-a6-iLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,7 +92,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_1" translatesAutoresizingMaskIntoConstraints="NO" id="JN5-Vy-veG">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_1" translatesAutoresizingMaskIntoConstraints="NO" id="JN5-Vy-veG" customClass="SpringImageView" customModule="Spring">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                             </imageView>
                         </subviews>
@@ -102,9 +103,10 @@
                             <constraint firstAttribute="trailing" secondItem="JN5-Vy-veG" secondAttribute="trailing" id="aXB-PV-6RT"/>
                             <constraint firstAttribute="bottom" secondItem="JN5-Vy-veG" secondAttribute="bottom" id="tm6-jK-OfZ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="UFy-6T-FVe"/>
                     </view>
                     <connections>
-                        <outlet property="diceImageView" destination="JN5-Vy-veG" id="M5C-pK-6h4"/>
+                        <outlet property="diceImageView" destination="JN5-Vy-veG" id="kHg-2W-B73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMD-8v-qhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
