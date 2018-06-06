@@ -58,7 +58,7 @@ extension DiceHistoryUserDefaultsRepository: DiceHistoryRepository {
             }
         }
 
-        return diceResults
+        return diceResults.reversed()
     }
     
     func reset() {

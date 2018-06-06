@@ -11,11 +11,22 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     private static let showSettingSegueIdentifier = "showSettingsSegue"
+    private static let dequeueHistoryCellIdentifier = "diceHistoryTableViewCell"
+    
     private var expanded = false
+    private var diceHistory: [DiceResult] = []
+    
+    @IBOutlet var historyTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         styleView()
+        
+        historyTableView.rowHeight = 60.0
+        historyTableView.delegate = self
+        historyTableView.dataSource = self
+        
+        initTableData()
     }
     
     private func styleView() {
@@ -26,6 +37,10 @@ class HistoryViewController: UIViewController {
         view.layer.shadowRadius = 20
         view.layer.shadowOffset = CGSize(width: 0, height: 10.0)
         view.layer.shouldRasterize = true
+    }
+    
+    private func initTableData() {
+        diceHistory = Injection.diceHistoryStore.get()
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
@@ -40,5 +55,31 @@ class HistoryViewController: UIViewController {
     private func showSettingsScene() {
         performSegue(withIdentifier: HistoryViewController.showSettingSegueIdentifier, sender: nil)
     }
+    
+}
+
+extension HistoryViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
+}
+
+extension HistoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return diceHistory.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryViewController.dequeueHistoryCellIdentifier, for: indexPath)
+        if let diceHistoryCell = cell as? DiceHistoryTableViewCell {
+            diceHistoryCell.diceResult = diceHistory[indexPath.row]
+        }
+        
+        return cell
+    }
+    
     
 }

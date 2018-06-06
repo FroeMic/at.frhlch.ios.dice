@@ -17,4 +17,8 @@ struct DiceResult: CustomStringConvertible {
     var description: String {
         return "[" + result.description + "] " + time.toStringWithRelativeTime()
     }
+    
+    var timestamp: String {
+        return time.toStringWithRelativeTime()
+    }
 }
