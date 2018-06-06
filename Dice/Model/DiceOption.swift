@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 enum DiceOption: Int {
+    
+    /**
+     * The number of enum values.
+     */
+    static let count: Int = 6
+    
     case one = 1
     case two = 2
     case three = 3
@@ -34,12 +40,5 @@ enum DiceOption: Int {
         }
     }
     
-    static let count: DiceOption.RawValue = {
-        // find the maximum enum value
-        var maxValue = 0
-        while let _ = DiceOption(rawValue: maxValue) {
-            maxValue += 1
-        }
-        return maxValue
-    }()
+   
 }
