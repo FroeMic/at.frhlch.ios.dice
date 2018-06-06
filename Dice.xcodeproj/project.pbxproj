@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		270F156220C855AE00B1F231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F156120C855AE00B1F231 /* AppDelegate.swift */; };
-		270F156420C855AE00B1F231 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F156320C855AE00B1F231 /* ViewController.swift */; };
+		270F156420C855AE00B1F231 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F156320C855AE00B1F231 /* ParentViewController.swift */; };
 		270F156720C855AE00B1F231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F156520C855AE00B1F231 /* Main.storyboard */; };
 		270F156920C855B000B1F231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270F156820C855B000B1F231 /* Assets.xcassets */; };
 		270F156C20C855B000B1F231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F156A20C855B000B1F231 /* LaunchScreen.storyboard */; };
 		270F157720C855B000B1F231 /* DiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F157620C855B000B1F231 /* DiceTests.swift */; };
+		270F158620C8579400B1F231 /* DiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158520C8579400B1F231 /* DiceResult.swift */; };
+		270F158820C857DB00B1F231 /* DiceHistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */; };
+		270F158A20C858E000B1F231 /* DiceHistoryMockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158920C858E000B1F231 /* DiceHistoryMockRepository.swift */; };
+		270F158C20C8596A00B1F231 /* DiceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158B20C8596A00B1F231 /* DiceOption.swift */; };
+		270F158E20C85B4300B1F231 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158D20C85B4300B1F231 /* Dice.swift */; };
+		270F159020C85D6B00B1F231 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F158F20C85D6B00B1F231 /* DiceViewController.swift */; };
+		270F159220C85E5200B1F231 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F159120C85E5200B1F231 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +35,7 @@
 /* Begin PBXFileReference section */
 		270F155E20C855AE00B1F231 /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F156120C855AE00B1F231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		270F156320C855AE00B1F231 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		270F156320C855AE00B1F231 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		270F156620C855AE00B1F231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		270F156820C855B000B1F231 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		270F156B20C855B000B1F231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +43,13 @@
 		270F157220C855B000B1F231 /* DiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F157620C855B000B1F231 /* DiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceTests.swift; sourceTree = "<group>"; };
 		270F157820C855B000B1F231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270F158520C8579400B1F231 /* DiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceResult.swift; sourceTree = "<group>"; };
+		270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceHistoryRepository.swift; sourceTree = "<group>"; };
+		270F158920C858E000B1F231 /* DiceHistoryMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceHistoryMockRepository.swift; sourceTree = "<group>"; };
+		270F158B20C8596A00B1F231 /* DiceOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceOption.swift; sourceTree = "<group>"; };
+		270F158D20C85B4300B1F231 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		270F158F20C85D6B00B1F231 /* DiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
+		270F159120C85E5200B1F231 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +91,11 @@
 		270F156020C855AE00B1F231 /* Dice */ = {
 			isa = PBXGroup;
 			children = (
+				270F158220C8567A00B1F231 /* Presentation */,
+				270F158320C8568800B1F231 /* Model */,
+				270F158420C8576C00B1F231 /* Data */,
 				270F156120C855AE00B1F231 /* AppDelegate.swift */,
-				270F156320C855AE00B1F231 /* ViewController.swift */,
-				270F156520C855AE00B1F231 /* Main.storyboard */,
 				270F156820C855B000B1F231 /* Assets.xcassets */,
-				270F156A20C855B000B1F231 /* LaunchScreen.storyboard */,
 				270F156D20C855B000B1F231 /* Info.plist */,
 			);
 			path = Dice;
@@ -94,6 +108,37 @@
 				270F157820C855B000B1F231 /* Info.plist */,
 			);
 			path = DiceTests;
+			sourceTree = "<group>";
+		};
+		270F158220C8567A00B1F231 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				270F156520C855AE00B1F231 /* Main.storyboard */,
+				270F156A20C855B000B1F231 /* LaunchScreen.storyboard */,
+				270F156320C855AE00B1F231 /* ParentViewController.swift */,
+				270F158F20C85D6B00B1F231 /* DiceViewController.swift */,
+				270F159120C85E5200B1F231 /* HistoryViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		270F158320C8568800B1F231 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				270F158520C8579400B1F231 /* DiceResult.swift */,
+				270F158B20C8596A00B1F231 /* DiceOption.swift */,
+				270F158D20C85B4300B1F231 /* Dice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		270F158420C8576C00B1F231 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */,
+				270F158920C858E000B1F231 /* DiceHistoryMockRepository.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				270F156420C855AE00B1F231 /* ViewController.swift in Sources */,
+				270F156420C855AE00B1F231 /* ParentViewController.swift in Sources */,
+				270F158E20C85B4300B1F231 /* Dice.swift in Sources */,
+				270F158C20C8596A00B1F231 /* DiceOption.swift in Sources */,
+				270F158820C857DB00B1F231 /* DiceHistoryRepository.swift in Sources */,
+				270F158A20C858E000B1F231 /* DiceHistoryMockRepository.swift in Sources */,
+				270F159020C85D6B00B1F231 /* DiceViewController.swift in Sources */,
+				270F159220C85E5200B1F231 /* HistoryViewController.swift in Sources */,
+				270F158620C8579400B1F231 /* DiceResult.swift in Sources */,
 				270F156220C855AE00B1F231 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
