@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum DiceOption: Int {
+enum DiceOption: Int, CustomStringConvertible {
     
     /**
      * The number of enum values.
@@ -37,6 +37,23 @@ enum DiceOption: Int {
             return UIImage(named: "dice_5")!
         case .six:
             return UIImage(named: "dice_6")!
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .one:
+            return "1"
+        case .two:
+            return "2"
+        case .three:
+            return "3"
+        case .four:
+            return "4"
+        case .five:
+            return "5"
+        case .six:
+            return "6"
         }
     }
     

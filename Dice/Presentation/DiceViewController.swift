@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import Spring
 
 class DiceViewController: UIViewController {
@@ -32,7 +33,9 @@ class DiceViewController: UIViewController {
     @objc
     func rollDice() {
         dice.roll()
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         updateDiceImage()
+        saveDiceResult()
     }
     
     private func updateDiceImage() {
@@ -45,5 +48,10 @@ class DiceViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.diceImageView.image = self.dice.result.image
         })
+    }
+    
+    private func saveDiceResult() {
+        let result = DiceResult(result: dice.result, time: Date())
+        Injection.diceHistoryStore.store(result)
     }
 }

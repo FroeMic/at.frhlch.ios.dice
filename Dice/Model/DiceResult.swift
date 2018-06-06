@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import AFDateHelper
 
-struct DiceResult {
-    
+struct DiceResult: CustomStringConvertible {
+
     let result: DiceOption
     let time: Date
     
+    var description: String {
+        return "[" + result.description + "] " + time.toStringWithRelativeTime()
+    }
 }
