@@ -10,6 +10,6 @@ import Foundation
 
 class Injection {
     
-    static let diceHistoryStore: DiceHistoryRepository = DiceHistoryMockRepository()
+    static let diceHistoryStore: DiceHistoryRepository = DiceHistoryUserDefaultsRepository()
     
 }

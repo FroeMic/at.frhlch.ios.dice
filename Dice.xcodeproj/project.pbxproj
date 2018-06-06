@@ -23,6 +23,7 @@
 		270F159220C85E5200B1F231 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F159120C85E5200B1F231 /* HistoryViewController.swift */; };
 		270F159420C8615300B1F231 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F159320C8615300B1F231 /* SettingViewController.swift */; };
 		273BA31220C8876000D3C955 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BA31120C8876000D3C955 /* Injection.swift */; };
+		27D3466D20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D3466C20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift */; };
 		B336ED6DF8FA626819D9214B /* Pods_DiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D01591377139A0BB72D2EC /* Pods_DiceTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		270F159120C85E5200B1F231 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		270F159320C8615300B1F231 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		273BA31120C8876000D3C955 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		27D3466C20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceHistoryUserDefaultsRepository.swift; sourceTree = "<group>"; };
 		7290D2C9DF947B67A95F39D7 /* Pods-DiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiceTests/Pods-DiceTests.release.xcconfig"; sourceTree = "<group>"; };
 		B0E9C49F129ABCF422DE6C24 /* Pods_Dice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D2C52DAC8B84F3F83E7242 /* Pods-Dice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dice/Pods-Dice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,9 +154,10 @@
 		270F158420C8576C00B1F231 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */,
-				270F158920C858E000B1F231 /* DiceHistoryMockRepository.swift */,
 				273BA31120C8876000D3C955 /* Injection.swift */,
+				270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */,
+				27D3466C20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift */,
+				270F158920C858E000B1F231 /* DiceHistoryMockRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				270F158E20C85B4300B1F231 /* Dice.swift in Sources */,
 				273BA31220C8876000D3C955 /* Injection.swift in Sources */,
 				270F158C20C8596A00B1F231 /* DiceOption.swift in Sources */,
+				27D3466D20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift in Sources */,
 				270F158820C857DB00B1F231 /* DiceHistoryRepository.swift in Sources */,
 				270F158A20C858E000B1F231 /* DiceHistoryMockRepository.swift in Sources */,
 				270F159420C8615300B1F231 /* SettingViewController.swift in Sources */,

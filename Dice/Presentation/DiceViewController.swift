@@ -53,5 +53,6 @@ class DiceViewController: UIViewController {
     private func saveDiceResult() {
         let result = DiceResult(result: dice.result, time: Date())
         Injection.diceHistoryStore.store(result)
+        Injection.diceHistoryStore.get()
     }
 }
