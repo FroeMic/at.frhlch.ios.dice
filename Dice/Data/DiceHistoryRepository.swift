@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DiceHistoryRepository {
+protocol DiceHistoryRepository: DiceHistoryPublisher {
     
     /**
      * Stores a DiceResult persistently.
@@ -24,5 +24,9 @@ protocol DiceHistoryRepository {
      * Removes all DiceResults.
      */
     func reset()
+    
+}
+
+extension DiceHistoryRepository {
     
 }

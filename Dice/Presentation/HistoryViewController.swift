@@ -27,6 +27,7 @@ class HistoryViewController: UIViewController {
         historyTableView.dataSource = self
         
         initTableData()
+        registerDiceHistoryObserver()
     }
     
     private func styleView() {
@@ -41,6 +42,10 @@ class HistoryViewController: UIViewController {
     
     private func initTableData() {
         diceHistory = Injection.diceHistoryStore.get()
+    }
+    
+    private func registerDiceHistoryObserver() {
+        Injection.diceHistoryStore.subscribe(self)
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
@@ -80,6 +85,15 @@ extension HistoryViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+extension HistoryViewController: DiceHistoryObserver {
+    func update(_ diceResult: DiceResult) {
+        diceHistory.insert(diceResult, at: 0)
+        
+        // Better than reload the whole tableview
+        historyTableView.beginUpdates()
+        historyTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
+        historyTableView.endUpdates()
+    }
 }

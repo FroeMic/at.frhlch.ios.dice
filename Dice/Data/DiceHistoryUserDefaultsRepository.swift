@@ -13,6 +13,7 @@ class DiceHistoryUserDefaultsRepository {
     
     fileprivate let savedHistory = "diceHistory"
     fileprivate let defaults = UserDefaults.standard
+    fileprivate var subscribers: [DiceHistoryObserver] = []
     
     fileprivate func resultToDict(_ diceResult: DiceResult) -> Dictionary<String,String> {
         return [
@@ -46,6 +47,8 @@ extension DiceHistoryUserDefaultsRepository: DiceHistoryRepository {
         existingResults.append(serializedResult)
         
         defaults.set(existingResults, forKey: savedHistory)
+        
+        notify(diceResult)
     }
     
     func get() -> [DiceResult] {
@@ -65,4 +68,25 @@ extension DiceHistoryUserDefaultsRepository: DiceHistoryRepository {
         defaults.set([], forKey: savedHistory)
     }
     
+    func subscribe(_ subscriber: DiceHistoryObserver) {
+        if let _ = subscribers.index(where: {$0 === subscriber}) {
+            // do nothing, already subscribed
+        } else {
+            subscribers.append(subscriber)
+        }
+    }
+    
+    func unsubscribe(_ subscriber: DiceHistoryObserver) {
+        if let index = subscribers.index(where: {$0 === subscriber}) {
+            subscribers.remove(at: index)
+        } else {
+            // do nothing
+        }
+    }
+    
+    func notify(_ diceResult: DiceResult) {
+        for subscriber in subscribers {
+            subscriber.update(diceResult)
+        }
+    }
 }
