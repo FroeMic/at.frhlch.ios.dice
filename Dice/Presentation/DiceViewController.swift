@@ -18,20 +18,16 @@ class DiceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        becomeFirstResponder()
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DiceViewController.rollDice))
         diceImageView.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            rollDice()
-        }
+        
+        Injection.shakeDelegate = self
     }
 
+
     @objc
-    func rollDice() {
+    fileprivate func rollDice() {
         dice.roll()
         updateDiceImage()
         notification.notificationOccurred(.success)
@@ -53,5 +49,12 @@ class DiceViewController: UIViewController {
     private func saveDiceResult() {
         let result = DiceResult(result: dice.result, time: Date())
         Injection.diceHistoryStore.store(result)
+    }
+}
+
+extension DiceViewController: ShakeDelegate {
+    
+    func shakeEnded() {
+        rollDice()
     }
 }

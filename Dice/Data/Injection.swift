@@ -12,4 +12,7 @@ class Injection {
     
     static let diceHistoryStore: DiceHistoryRepository = DiceHistoryUserDefaultsRepository()
     
+    // a bit of a hack
+    static var  shakeDelegate: ShakeDelegate? = nil
+    
 }
