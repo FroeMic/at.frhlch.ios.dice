@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2M-wz-SIM">
-                                <rect key="frame" x="67" y="164" width="240" height="240"/>
+                                <rect key="frame" x="67.5" y="163.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K2M-wz-SIM" secondAttribute="height" multiplier="1:1" id="gb1-am-cQj"/>
                                     <constraint firstAttribute="height" constant="240" id="tjD-CF-Isw"/>
@@ -49,6 +48,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="diceViewCenterVerticalConstraint" destination="fba-T6-ZF3" id="w1C-tx-Il3"/>
+                        <outlet property="diceViewHeightConstraint" destination="tjD-CF-Isw" id="2Ua-bp-J5P"/>
+                        <outlet property="historyViewContainer" destination="oIy-LY-zGG" id="vqP-Ej-Vgf"/>
+                        <outlet property="historyViewHeightConstraint" destination="cOb-wz-djQ" id="wjb-Qn-oIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,7 +73,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="pCq-jv-cSY">
                                     <rect key="frame" x="0.0" y="88" width="343" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.81568627449999997" green="0.0" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diceHistoryTableViewCell" rowHeight="60" id="XAy-iO-6gh" customClass="DiceHistoryTableViewCell" customModule="Dice" customModuleProvider="target">
@@ -79,22 +83,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-d3-Yrk">
-                                                    <rect key="frame" x="16" y="8" width="311" height="43"/>
+                                                    <rect key="frame" x="16" y="8" width="311" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You rolled a 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4g-uN-Rxj">
-                                                            <rect key="frame" x="53" y="5" width="253" height="17"/>
+                                                            <rect key="frame" x="53.5" y="5" width="252.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="just now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-eT-Jlw">
-                                                            <rect key="frame" x="53" y="27" width="253" height="12"/>
+                                                            <rect key="frame" x="53.5" y="27" width="252.5" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_1" translatesAutoresizingMaskIntoConstraints="NO" id="vU2-3F-nm2">
-                                                            <rect key="frame" x="5" y="5" width="33" height="33"/>
+                                                            <rect key="frame" x="5" y="5" width="33.5" height="33.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="vU2-3F-nm2" secondAttribute="height" multiplier="1:1" id="Og8-Wy-Hbo"/>
                                                             </constraints>
