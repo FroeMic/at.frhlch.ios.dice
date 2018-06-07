@@ -11,6 +11,7 @@ import AFDateHelper
 
 class DiceHistoryUserDefaultsRepository {
     
+    fileprivate let maxSavedResults = 50
     fileprivate let savedHistory = "diceHistory"
     fileprivate let defaults = UserDefaults.standard
     fileprivate var subscribers: [DiceHistoryObserver] = []
@@ -45,8 +46,9 @@ extension DiceHistoryUserDefaultsRepository: DiceHistoryRepository {
         var existingResults = defaults.array(forKey: savedHistory) ?? []
         
         existingResults.append(serializedResult)
+        let limitedResults = Array(existingResults.suffix(maxSavedResults))
         
-        defaults.set(existingResults, forKey: savedHistory)
+        defaults.set(limitedResults, forKey: savedHistory)
         
         notify(diceResult)
     }
