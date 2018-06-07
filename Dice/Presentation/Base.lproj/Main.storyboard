@@ -97,22 +97,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-d3-Yrk">
-                                                    <rect key="frame" x="16" y="8" width="311" height="43"/>
+                                                    <rect key="frame" x="16" y="8" width="311" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You rolled a 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4g-uN-Rxj">
-                                                            <rect key="frame" x="53" y="5" width="253" height="17"/>
+                                                            <rect key="frame" x="53.5" y="5" width="252.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="just now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKf-eT-Jlw">
-                                                            <rect key="frame" x="53" y="27" width="253" height="12"/>
+                                                            <rect key="frame" x="53.5" y="27" width="252.5" height="12"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_1" translatesAutoresizingMaskIntoConstraints="NO" id="vU2-3F-nm2">
-                                                            <rect key="frame" x="5" y="5" width="33" height="33"/>
+                                                            <rect key="frame" x="5" y="5" width="33.5" height="33.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="vU2-3F-nm2" secondAttribute="height" multiplier="1:1" id="Og8-Wy-Hbo"/>
                                                             </constraints>

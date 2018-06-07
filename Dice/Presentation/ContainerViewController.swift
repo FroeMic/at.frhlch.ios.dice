@@ -31,7 +31,6 @@ class ContainerViewController: UIViewController {
         
         let panGestureRecognizer = InstantPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePan))
         panGestureView.addGestureRecognizer(panGestureRecognizer)
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
