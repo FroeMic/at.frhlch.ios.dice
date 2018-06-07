@@ -15,8 +15,14 @@ class ContainerViewController: UIViewController {
     @IBOutlet var diceViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var historyViewHeightConstraint: NSLayoutConstraint!
     
-    private var historyViewIsOpen = false
-    private let animator = UIViewPropertyAnimator()
+    private var historyViewIsOpen = false {
+        didSet {
+            print(historyViewIsOpen)
+        }
+    }
+    private var animationProgress: CGFloat = 0.0
+    private var animator = UIViewPropertyAnimator()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +30,9 @@ class ContainerViewController: UIViewController {
         let tapGestureRecongizer = UITapGestureRecognizer(target: self, action: #selector(ContainerViewController.historyViewPressed))
         historyViewContainer.addGestureRecognizer(tapGestureRecongizer)
         
-//        let swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ContainerViewController.historyViewPressed))
-//        swipeUpGestureRecognizer.direction = .up
-//        let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(ContainerViewController.historyViewPressed))
-//        swipeDownGestureRecognizer.direction = .down
-//        historyViewContainer.addGestureRecognizer(swipeUpGestureRecognizer)
-//        historyViewContainer.addGestureRecognizer(swipeDownGestureRecognizer)
-        
-        
-//
-//        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePan))
+        let panGestureRecognizer = InstantPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePan))
+        historyViewContainer.addGestureRecognizer(panGestureRecognizer)
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -55,30 +54,109 @@ class ContainerViewController: UIViewController {
     }
     
     @objc func historyViewPressed() {
+
         if historyViewIsOpen {
-            animateContractHistoryView()
+            let transitionAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
+                self.animateContractHistoryView()
+            })
+            transitionAnimator.startAnimation()
         } else {
-            animateExpandHistoryView()
+            let transitionAnimator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 1, animations: {
+                self.animateExpandHistoryView()
+            })
+            transitionAnimator.startAnimation()
         }
         historyViewIsOpen = !historyViewIsOpen
     }
     
-    private func handlePan(recognizer: UIPanGestureRecognizer) {
-//        switch recognizer.state {
-//        case .began:
-//            animator = UIViewPropertyAnimator(duration: 3, curve: .easeOut, animations: {
-//                myView.transform = CGAffineTransform(translationX: 275, y: 0)
-//                myView.alpha = 0
-//            })
-//            animator.startAnimation()
-//            animator.pauseAnimation()
-//        case .changed:
-//            animator.fractionComplete = recognizer.translation(in: myView).x / 275
-//        case .ended:
-//            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-//        default:
-//            ()
-//        }
+    @objc func handlePan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            if historyViewIsOpen {
+                animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
+                    self.animateContractHistoryView()
+                })
+                
+                animator.addCompletion{ position in
+                    switch position {
+                    case .start:
+                        self.historyViewIsOpen = true
+                    case .end:
+                        self.historyViewIsOpen = false
+                    case .current:
+                        ()
+                    }
+                }
+            } else {
+                animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeOut, animations: {
+                    self.animateExpandHistoryView()
+                })
+                animator.addCompletion{ position in
+                    switch position {
+                    case .start:
+                        self.historyViewIsOpen = false
+                    case .end:
+                        self.historyViewIsOpen = true
+                    case .current:
+                        ()
+                    }
+                }
+            }
+            animator.pauseAnimation()
+            animationProgress = animator.fractionComplete
+        case .changed:
+            let translation = recognizer.translation(in: historyViewContainer)
+            var screenHeight = UIScreen.main.bounds.height
+            
+            if #available(iOS 11.0, *) {
+                // if we are on an iPhone X substract the space that the notch takes
+                let window = UIApplication.shared.keyWindow
+                screenHeight -= window?.safeAreaInsets.top ?? 0.0
+            }
+            let fractionOfHeightForHistory: CGFloat = 0.75
+            let finalHistoryViewHeight: CGFloat = screenHeight * fractionOfHeightForHistory
+            let initialHistoryViewHeight:CGFloat = 141.0
+
+            let differenceInHeight = finalHistoryViewHeight - initialHistoryViewHeight
+            
+            let fractionComplete = abs(translation.y) / differenceInHeight + animationProgress
+            
+            print(fractionComplete)
+
+            animator.fractionComplete = fractionComplete
+        case .ended:
+            
+            // variable setup
+            let yVelocity = recognizer.velocity(in: historyViewContainer).y
+            let shouldClose = yVelocity > 0
+            
+            // if there is no motion, continue all animations and exit early
+            if yVelocity == 0 {
+                let timing = UICubicTimingParameters(animationCurve: .easeOut)
+                animator.continueAnimation(withTimingParameters: timing, durationFactor: 0)
+                break
+            }
+            
+            // reverse the animations based on their current state and pan motion
+            if historyViewIsOpen {
+                if !shouldClose && !animator.isReversed {
+                    animator.isReversed = true
+                } else if shouldClose && animator.isReversed {
+                    animator.isReversed = false
+                }
+            } else {
+                if shouldClose && !animator.isReversed {
+                    animator.isReversed = true
+                } else if !shouldClose && animator.isReversed {
+                    animator.isReversed = false
+                }
+            }
+            
+            let timing = UICubicTimingParameters(animationCurve: .easeOut)
+            animator.continueAnimation(withTimingParameters: timing, durationFactor: 0)
+        default:
+            ()
+        }
     }
     
     private func animateExpandHistoryView() {
@@ -102,25 +180,19 @@ class ContainerViewController: UIViewController {
         let diceOffset = -1.0 * screenHeight * 0.5 + calculatedDiceSpace * 0.5 + dicePadding
         let historyViewHeight = screenHeight * fractionOfHeightForHistory
         
-        let transitionAnimator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 1, animations: {
-            self.diceViewCenterVerticalConstraint.constant = diceOffset
-            self.diceViewHeightConstraint.constant = diceHeight
-            self.historyViewHeightConstraint.constant = historyViewHeight
-            self.view.layoutIfNeeded()
-        })
-        
-        transitionAnimator.startAnimation()
+    
+        diceViewCenterVerticalConstraint.constant = diceOffset
+        diceViewHeightConstraint.constant = diceHeight
+        historyViewHeightConstraint.constant = historyViewHeight
+        view.layoutIfNeeded()
+
     }
     
    private func animateContractHistoryView() {
-        let transitionAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: {
-            self.diceViewCenterVerticalConstraint.constant = -50.0
-            self.diceViewHeightConstraint.constant = 240.0
-            self.historyViewHeightConstraint.constant = 141.0
-            self.view.layoutIfNeeded()
-        })
-    
-        transitionAnimator.startAnimation()
+        diceViewCenterVerticalConstraint.constant = -50.0
+        diceViewHeightConstraint.constant = 240.0
+        historyViewHeightConstraint.constant = 141.0
+            view.layoutIfNeeded()
     }
     
 }
