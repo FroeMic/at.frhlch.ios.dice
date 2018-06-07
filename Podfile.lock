@@ -1,0 +1,29 @@
+PODS:
+  - AFDateHelper (4.2.7)
+  - Spring (1.0.5)
+
+DEPENDENCIES:
+  - AFDateHelper (from `https://github.com/FroeMic/DateHelper.git`)
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+
+EXTERNAL SOURCES:
+  AFDateHelper:
+    :git: https://github.com/FroeMic/DateHelper.git
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  AFDateHelper:
+    :commit: 8d70e584757e78e687917044e06d353dddc907a1
+    :git: https://github.com/FroeMic/DateHelper.git
+  Spring:
+    :commit: c540239f3590bbaf4a35c3959c329dd5ed4e3eee
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  AFDateHelper: 9dcce64b7200d8cc559ac4e89db99722c00c89de
+  Spring: 3c7666eccefdeb87140008dc81043f89f8dbb787
+
+PODFILE CHECKSUM: a048d4f963751a2b3f8ea551b9fe792dae8d3876
+
+COCOAPODS: 1.5.3
