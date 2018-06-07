@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZNO-9w-YR6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,7 +28,7 @@
                                     <segue destination="SX7-f1-FWT" kind="embed" id="OGg-cx-YWf"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIy-LY-zGG">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIy-LY-zGG" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="16" y="558" width="343" height="141"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="141" id="cOb-wz-djQ"/>
@@ -37,7 +37,7 @@
                                     <segue destination="60c-ky-gYp" kind="embed" id="KVU-hd-581"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-VJ-Vpq">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-VJ-Vpq" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="16" y="558" width="343" height="109"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -273,6 +273,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMD-8v-qhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="910" y="132"/>
+        </scene>
+        <!--Launch Screen View Controller-->
+        <scene sceneID="dae-TO-Kp5">
+            <objects>
+                <viewController id="ZNO-9w-YR6" customClass="LaunchScreenViewController" customModule="Dice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R20-nx-N3G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice_1" translatesAutoresizingMaskIntoConstraints="NO" id="vGa-xE-Mob" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="67.5" y="163.5" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0fz-DC-Vqj"/>
+                                    <constraint firstAttribute="height" constant="240" id="U8T-WX-w8l"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dice." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0m-JT-rbS" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="0.0" y="478.5" width="375" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="w0m-JT-rbS" firstAttribute="top" secondItem="vGa-xE-Mob" secondAttribute="bottom" constant="75" id="0KT-zG-lVD"/>
+                            <constraint firstItem="iyJ-85-eoj" firstAttribute="trailing" secondItem="w0m-JT-rbS" secondAttribute="trailing" id="5DP-ec-Gr7"/>
+                            <constraint firstItem="vGa-xE-Mob" firstAttribute="centerY" secondItem="R20-nx-N3G" secondAttribute="centerY" constant="-50" id="F2O-oI-MZZ"/>
+                            <constraint firstItem="vGa-xE-Mob" firstAttribute="centerX" secondItem="R20-nx-N3G" secondAttribute="centerX" id="cfQ-6q-aIt"/>
+                            <constraint firstItem="w0m-JT-rbS" firstAttribute="leading" secondItem="iyJ-85-eoj" secondAttribute="leading" id="fS5-Yv-Fp4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iyJ-85-eoj"/>
+                    </view>
+                    <connections>
+                        <outlet property="diceImageView" destination="vGa-xE-Mob" id="lbi-6u-fP0"/>
+                        <outlet property="titleLabel" destination="w0m-JT-rbS" id="Vc3-yw-9E3"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="presentMainAppSegue" animates="NO" id="oyB-J0-ZpA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejB-2K-xXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714" y="132"/>
         </scene>
     </scenes>
     <resources>

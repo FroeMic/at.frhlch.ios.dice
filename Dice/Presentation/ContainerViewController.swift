@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Spring
 
 class ContainerViewController: UIViewController {
     
     @IBOutlet var panGestureView: UIView!
-    @IBOutlet var historyViewContainer: UIView!
+    @IBOutlet var historyViewContainer: SpringView!
     @IBOutlet var panGestureViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var diceViewCenterVerticalConstraint: NSLayoutConstraint!
     @IBOutlet var diceViewHeightConstraint: NSLayoutConstraint!
@@ -34,9 +35,15 @@ class ContainerViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        historyViewContainer.animation = "fadeInUp"
+        historyViewContainer.curve = "easeIn"
+        historyViewContainer.duration =  0.8
+        historyViewContainer.force = 1.0
+        historyViewContainer.animate()
 
         becomeFirstResponder()
+        
+        super.viewDidAppear(animated)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
