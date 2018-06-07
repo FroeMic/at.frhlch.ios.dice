@@ -94,5 +94,14 @@ extension HistoryViewController: DiceHistoryObserver {
         historyTableView.beginUpdates()
         historyTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
         historyTableView.endUpdates()
+        
+        // update the cell content for all cells to show the proper time string
+        for row in 0...diceHistory.count {
+            let indexPath = IndexPath(row: row, section: 0)
+            let cellAtIndex = historyTableView.cellForRow(at: indexPath)
+            if let diceHistoryCell = cellAtIndex as? DiceHistoryTableViewCell {
+                diceHistoryCell.reloadCellContent()
+            }
+        }
     }
 }

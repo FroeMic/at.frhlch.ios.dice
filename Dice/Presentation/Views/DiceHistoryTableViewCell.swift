@@ -38,7 +38,9 @@ class DiceHistoryTableViewCell: UITableViewCell {
         subtitleLabel?.text = diceResult.timestamp
     }
     
-    
-    
-    
+    public func reloadCellContent() {
+        if let diceResult = diceResult {
+            updateCellContent(diceResult)
+        }
+    }
 }
