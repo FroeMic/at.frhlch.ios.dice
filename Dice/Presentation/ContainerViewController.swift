@@ -57,10 +57,30 @@ class ContainerViewController: UIViewController {
     }
     
     private func animateExpandHistoryView() {
+        
+        var screenHeight = UIScreen.main.bounds.height
+
+        if #available(iOS 11.0, *) {
+            // if we are on an iPhone X substract the space that the notch takes
+            let window = UIApplication.shared.keyWindow
+            screenHeight -= window?.safeAreaInsets.top ?? 0.0
+        }
+        
+        let diceMaxSize: CGFloat = 100.0
+        let fractionOfHeightForHistory: CGFloat = 0.75
+        let fractionOfHeightForDice: CGFloat = 1.0 - fractionOfHeightForHistory
+        
+        let calculatedDiceSpace: CGFloat = fractionOfHeightForDice * screenHeight
+        let dicePadding: CGFloat = 20.0
+        let calculatedDiceSize: CGFloat = calculatedDiceSpace - 2.0 * dicePadding
+        let diceHeight: CGFloat = diceMaxSize < calculatedDiceSize ? diceMaxSize : calculatedDiceSize
+        let diceOffset = -1.0 * screenHeight * 0.5 + calculatedDiceSpace * 0.5 + dicePadding
+        let historyViewHeight = screenHeight * fractionOfHeightForHistory
+        
         UIView.animate(withDuration: 0.3, animations: {
-            self.diceViewCenterVerticalConstraint.constant = -270.0
-            self.diceViewHeightConstraint.constant = 100.0
-            self.historyViewHeightConstraint.constant = 600.0
+            self.diceViewCenterVerticalConstraint.constant = diceOffset
+            self.diceViewHeightConstraint.constant = diceHeight
+            self.historyViewHeightConstraint.constant = historyViewHeight
             self.view.layoutIfNeeded()
         })
     }

@@ -113,12 +113,11 @@
 		270F156020C855AE00B1F231 /* Dice */ = {
 			isa = PBXGroup;
 			children = (
+				270F156D20C855B000B1F231 /* Info.plist */,
+				272E3A0720C8D6E30035BD8B /* Base */,
 				270F158220C8567A00B1F231 /* Presentation */,
 				270F158320C8568800B1F231 /* Model */,
 				270F158420C8576C00B1F231 /* Data */,
-				270F156120C855AE00B1F231 /* AppDelegate.swift */,
-				270F156820C855B000B1F231 /* Assets.xcassets */,
-				270F156D20C855B000B1F231 /* Info.plist */,
 			);
 			path = Dice;
 			sourceTree = "<group>";
@@ -149,6 +148,8 @@
 		270F158320C8568800B1F231 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */,
+				2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */,
 				270F158520C8579400B1F231 /* DiceResult.swift */,
 				270F158B20C8596A00B1F231 /* DiceOption.swift */,
 				270F158D20C85B4300B1F231 /* Dice.swift */,
@@ -159,13 +160,20 @@
 		270F158420C8576C00B1F231 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				273BA31120C8876000D3C955 /* Injection.swift */,
-				2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */,
-				2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */,
 				270F158720C857DB00B1F231 /* DiceHistoryRepository.swift */,
 				27D3466C20C88B42006424BD /* DiceHistoryUserDefaultsRepository.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		272E3A0720C8D6E30035BD8B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				270F156120C855AE00B1F231 /* AppDelegate.swift */,
+				273BA31120C8876000D3C955 /* Injection.swift */,
+				270F156820C855B000B1F231 /* Assets.xcassets */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		27D3466E20C89896006424BD /* Views */ = {
