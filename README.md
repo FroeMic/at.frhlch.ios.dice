@@ -1,6 +1,8 @@
 ### Dice 
 
-#### Dice is a beautiful minimal dice app for iOS. 
+![alt text](dice_wallpaper.png)
+
+### Dice is a beautiful minimal dice app for iOS. 
 
 With Dice you can do one thing. 
 Roll a dice. 
