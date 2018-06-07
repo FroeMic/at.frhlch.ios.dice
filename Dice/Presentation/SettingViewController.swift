@@ -26,7 +26,6 @@ class SettingsViewController: UIViewController {
         containerView.layer.shadowOpacity = 0.1
         containerView.layer.shadowRadius = 20
         containerView.layer.shadowOffset = CGSize(width: 0, height: 10.0)
-        containerView.layer.shouldRasterize = true
     }
     
     @IBAction func closeButtonPressed(_ sender: UIButton) {

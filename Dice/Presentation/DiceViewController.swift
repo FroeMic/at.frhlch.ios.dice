@@ -41,7 +41,7 @@ class DiceViewController: UIViewController {
         diceImageView.duration =  0.7
         diceImageView.animate()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
             self.diceImageView.image = self.dice.result.image
         })
     }

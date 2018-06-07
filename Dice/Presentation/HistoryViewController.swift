@@ -37,7 +37,6 @@ class HistoryViewController: UIViewController {
         view.layer.shadowOpacity = 0.1
         view.layer.shadowRadius = 20
         view.layer.shadowOffset = CGSize(width: 0, height: 10.0)
-        view.layer.shouldRasterize = true
     }
     
     private func initTableData() {
