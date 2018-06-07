@@ -10,16 +10,14 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
+    @IBOutlet var panGestureView: UIView!
     @IBOutlet var historyViewContainer: UIView!
+    @IBOutlet var panGestureViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var diceViewCenterVerticalConstraint: NSLayoutConstraint!
     @IBOutlet var diceViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var historyViewHeightConstraint: NSLayoutConstraint!
     
-    private var historyViewIsOpen = false {
-        didSet {
-            print(historyViewIsOpen)
-        }
-    }
+    private var historyViewIsOpen = false 
     private var animationProgress: CGFloat = 0.0
     private var animator = UIViewPropertyAnimator()
 
@@ -28,10 +26,10 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         
         let tapGestureRecongizer = UITapGestureRecognizer(target: self, action: #selector(ContainerViewController.historyViewPressed))
-        historyViewContainer.addGestureRecognizer(tapGestureRecongizer)
+        panGestureView.addGestureRecognizer(tapGestureRecongizer)
         
         let panGestureRecognizer = InstantPanGestureRecognizer(target: self, action: #selector(ContainerViewController.handlePan))
-        historyViewContainer.addGestureRecognizer(panGestureRecognizer)
+        panGestureView.addGestureRecognizer(panGestureRecognizer)
 
     }
 
@@ -120,8 +118,6 @@ class ContainerViewController: UIViewController {
             let differenceInHeight = finalHistoryViewHeight - initialHistoryViewHeight
             
             let fractionComplete = abs(translation.y) / differenceInHeight + animationProgress
-            
-            print(fractionComplete)
 
             animator.fractionComplete = fractionComplete
         case .ended:
@@ -184,6 +180,7 @@ class ContainerViewController: UIViewController {
         diceViewCenterVerticalConstraint.constant = diceOffset
         diceViewHeightConstraint.constant = diceHeight
         historyViewHeightConstraint.constant = historyViewHeight
+        panGestureViewHeightConstraint.constant = 49.0
         view.layoutIfNeeded()
 
     }
@@ -192,7 +189,8 @@ class ContainerViewController: UIViewController {
         diceViewCenterVerticalConstraint.constant = -50.0
         diceViewHeightConstraint.constant = 240.0
         historyViewHeightConstraint.constant = 141.0
-            view.layoutIfNeeded()
+        panGestureViewHeightConstraint.constant = 109.0
+        view.layoutIfNeeded()
     }
     
 }
