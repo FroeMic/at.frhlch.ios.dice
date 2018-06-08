@@ -22,6 +22,6 @@ class Dice {
     }
     
     private func selectRandom(min: Int = 0, max: Int = 6) -> Int{
-        return Int(arc4random_uniform(UInt32(max - min))) + min
+        return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
 }
