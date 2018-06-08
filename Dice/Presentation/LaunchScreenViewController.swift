@@ -23,19 +23,19 @@ class LaunchScreenViewController: UIViewController {
         
         diceImageView.animation = "swing"
         diceImageView.curve = "easeIn"
-        titleLabel.delay = 0.2
+        titleLabel.delay = 0.8
         diceImageView.duration =  0.6
         diceImageView.force = 0.4
         diceImageView.animate()
         
         titleLabel.animation = "zoomOut"
         titleLabel.curve = "easeIn"
-        titleLabel.delay = 0.4
-        titleLabel.duration =  0.8
+        titleLabel.delay = 1.0
+        titleLabel.duration =  1.2
         titleLabel.force = 1.0
         titleLabel.animate()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4, execute: {
             self.performSegue(withIdentifier: LaunchScreenViewController.showMainAppSegueIdentifier, sender: nil)
         })
         
