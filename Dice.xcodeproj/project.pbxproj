@@ -549,6 +549,7 @@
 			baseConfigurationReference = E0D2C52DAC8B84F3F83E7242 /* Pods-Dice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8739VU9P7E;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -569,6 +570,7 @@
 			baseConfigurationReference = 0832F2243093726B2B9B37F0 /* Pods-Dice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_OPTIMIZATION = space;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8739VU9P7E;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
