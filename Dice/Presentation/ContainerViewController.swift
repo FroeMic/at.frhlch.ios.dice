@@ -11,6 +11,8 @@ import Spring
 
 class ContainerViewController: UIViewController {
     
+    private static let showSettingSegueIdentifier = "showSettingsSegue"
+    
     @IBOutlet var panGestureView: UIView!
     @IBOutlet var historyViewContainer: SpringView!
     @IBOutlet var panGestureViewHeightConstraint: NSLayoutConstraint!
@@ -23,6 +25,7 @@ class ContainerViewController: UIViewController {
     private var animator = UIViewPropertyAnimator()
 
     
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,11 +53,21 @@ class ContainerViewController: UIViewController {
 
         resignFirstResponder()
     }
+    
+    // MARK: User Interaction
 
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             Injection.shakeDelegate?.shakeEnded()
         }
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        showSettingsScene()
+    }
+    
+    private func showSettingsScene() {
+        performSegue(withIdentifier: ContainerViewController.showSettingSegueIdentifier, sender: nil)
     }
     
     @objc func historyViewPressed() {

@@ -10,7 +10,6 @@ import UIKit
 
 class HistoryViewController: UIViewController {
     
-    private static let showSettingSegueIdentifier = "showSettingsSegue"
     private static let dequeueHistoryCellIdentifier = "diceHistoryTableViewCell"
     
     private var expanded = false
@@ -45,21 +44,7 @@ class HistoryViewController: UIViewController {
     
     private func registerDiceHistoryObserver() {
         Injection.diceHistoryStore.subscribe(self)
-    }
-    
-    @IBAction func settingsButtonPressed(_ sender: UIButton) {
-        
-        if expanded {
-            showSettingsScene()
-        } else {
-            // expand and then switch to settings
-        }
-    }
-    
-    private func showSettingsScene() {
-        performSegue(withIdentifier: HistoryViewController.showSettingSegueIdentifier, sender: nil)
-    }
-    
+    }    
 }
 
 extension HistoryViewController: UITableViewDelegate {
