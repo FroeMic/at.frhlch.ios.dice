@@ -18,5 +18,12 @@ Let me know how you like it.
 #### No Distractions
 - completely free
 - no advertisment
-- no premium version we try to upsell
+- no distractions
+
+
+#### Get Tip on the App Store
+
+![Get Dice on the appstore](download_appstore.png)
+
+**-->** [Click Here to Download](https://frhlch.at/f/dice?app=1)
 
