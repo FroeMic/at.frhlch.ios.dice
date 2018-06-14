@@ -10,7 +10,8 @@ import Foundation
 
 class Injection {
     
-    static let diceHistoryStore: DiceHistoryRepository = DiceHistoryUserDefaultsRepository()
+    static let diceHistoryStore: DiceHistoryRepository = UDDiceHistoryRepository()
+    static let settings: SettingsRepository = UDSettingsRepository()
     
     // a bit of a hack
     static var  shakeDelegate: ShakeDelegate? = nil

@@ -9,7 +9,7 @@
 import Foundation
 import AFDateHelper
 
-class DiceHistoryUserDefaultsRepository {
+class UDDiceHistoryRepository {
     
     fileprivate let maxSavedResults = 50
     fileprivate let savedHistory = "diceHistory"
@@ -39,7 +39,7 @@ class DiceHistoryUserDefaultsRepository {
     
 }
 
-extension DiceHistoryUserDefaultsRepository: DiceHistoryRepository {
+extension UDDiceHistoryRepository: DiceHistoryRepository {
     
     func store(_ diceResult: DiceResult) {
         let serializedResult = resultToDict(diceResult)

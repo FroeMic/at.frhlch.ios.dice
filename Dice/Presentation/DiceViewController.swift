@@ -14,7 +14,7 @@ class DiceViewController: UIViewController {
     @IBOutlet var diceImageView: SpringImageView!
     
     private let dice = Dice()
-    private let notification = UINotificationFeedbackGenerator()
+    private let feedbackManager = FeedbackManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class DiceViewController: UIViewController {
     fileprivate func rollDice() {
         dice.roll()
         updateDiceImage()
-        notification.notificationOccurred(.success)
+        feedbackManager.feedbackForDice(success: true)
         saveDiceResult()
     }
     

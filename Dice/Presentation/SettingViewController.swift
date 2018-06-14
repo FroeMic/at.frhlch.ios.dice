@@ -33,6 +33,7 @@ class SettingsViewController: UIViewController {
         }, completion: nil)
     }
     
+    // MARK: Style & Config
     private func styleView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
         
@@ -44,6 +45,7 @@ class SettingsViewController: UIViewController {
         containerView.layer.shadowOffset = CGSize(width: 0, height: 10.0)
     }
     
+    // MARK: User Interaction
     @IBAction func closeButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
