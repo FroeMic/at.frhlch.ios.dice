@@ -90,10 +90,7 @@ extension HistoryViewController: DiceHistoryObserver {
     func update(_ diceResult: DiceResult) {
         diceHistory.insert(diceResult, at: 0)
         
-        // Better than reload the whole tableview
-        historyTableView.beginUpdates()
-        historyTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
-        historyTableView.endUpdates()
+        historyTableView.reloadData()
         
         // update the cell content for all cells to show the proper time string
         for row in 0...diceHistory.count {
