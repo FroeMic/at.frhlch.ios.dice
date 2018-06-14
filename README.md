@@ -21,7 +21,7 @@ Let me know how you like it.
 - no distractions
 
 
-#### Get Tip on the App Store
+#### Get Dice on the App Store
 
 ![Get Dice on the appstore](download_appstore.png)
 
