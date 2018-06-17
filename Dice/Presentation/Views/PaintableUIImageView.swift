@@ -16,6 +16,7 @@ class PaintableUIImageView: UIImageView {
         didSet {
             if let image = self.image {
                 self.image = image.withRenderingMode(.alwaysTemplate)
+                self.tintColor = imageColor
             }
         }
     }
@@ -23,10 +24,11 @@ class PaintableUIImageView: UIImageView {
     override var image: UIImage? {
         set (newImage) {
             super.image = newImage?.withRenderingMode(.alwaysTemplate)
+            self.tintColor = imageColor
         }
         get {
             return super.image
         }
     }
-    
+
 }

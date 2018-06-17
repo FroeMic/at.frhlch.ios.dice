@@ -10,8 +10,10 @@ import Foundation
 
 class UDSettingsRepository {
     
+    fileprivate static let numberOfDiceKey = "numberOfDice"
     fileprivate static let shouldProvideHapticFeedbackKey = "shouldProvideHapticFeedback"
     fileprivate static let defaultSettings: Dictionary<String, String> = [
+        numberOfDiceKey: "\(1)",
         shouldProvideHapticFeedbackKey: "\(true)"
     ]
     
@@ -29,10 +31,30 @@ class UDSettingsRepository {
             return defaults.bool(forKey: key)
         }
     }
+    
+    fileprivate func getIntOrDefault(key: String) -> Int {
+        if isKeyPresentInUserDefaults(key: key) {
+            return defaults.integer(forKey: UDSettingsRepository.numberOfDiceKey)
+        } else {
+            defaults.set(UDSettingsRepository.defaultSettings[key], forKey: key)
+            return defaults.integer(forKey: key)
+        }
+    }
 }
 
 extension UDSettingsRepository: SettingsRepository {
+
     
+    var numberOfDice: Int {
+        get {
+            return getIntOrDefault(key: UDSettingsRepository.numberOfDiceKey)
+        }
+        set (newValue) {
+            if newValue > 0 {
+                defaults.set(newValue, forKey: UDSettingsRepository.numberOfDiceKey)
+            }
+        }
+    }
     
     var shouldProvideHapticFeedback: Bool {
         get {

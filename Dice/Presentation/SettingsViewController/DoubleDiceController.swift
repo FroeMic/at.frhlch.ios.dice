@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HapticFeedbackController: UIViewController {
+class DoubleDiceController: UIViewController {
     
     private var settings = Injection.settings
     
@@ -19,10 +19,12 @@ class HapticFeedbackController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settingSwitch.isOn = settings.shouldProvideHapticFeedback
+        print(settings.numberOfDice)
+        
+        settingSwitch.isOn = settings.numberOfDice > 1
     }
     
     @IBAction func didToggleSettingsButton(_ sender: UISwitch) {
-        settings.shouldProvideHapticFeedback = settingSwitch.isOn
+        settings.numberOfDice = 2
     }
 }

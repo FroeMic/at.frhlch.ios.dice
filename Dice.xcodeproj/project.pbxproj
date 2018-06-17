@@ -23,11 +23,13 @@
 		270F159420C8615300B1F231 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F159320C8615300B1F231 /* SettingViewController.swift */; };
 		2712614B20C900EE005FEEA9 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712614A20C900EE005FEEA9 /* LaunchScreenViewController.swift */; };
 		271980F820D2E14300DF7297 /* PaintableUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271980F720D2E14300DF7297 /* PaintableUIImageView.swift */; };
-		271980FB20D2E6B500DF7297 /* HapticFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271980FA20D2E6B500DF7297 /* HapticFeedbackController.swift */; };
+		271980FB20D2E6B500DF7297 /* DoubleDiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271980FA20D2E6B500DF7297 /* DoubleDiceController.swift */; };
 		271980FD20D2E87000DF7297 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271980FC20D2E87000DF7297 /* SettingsRepository.swift */; };
 		271980FF20D2E8A700DF7297 /* UDSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271980FE20D2E8A700DF7297 /* UDSettingsRepository.swift */; };
 		2719810420D2EE8B00DF7297 /* FeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2719810320D2EE8B00DF7297 /* FeedbackManager.swift */; };
 		272E3A0920C8E4350035BD8B /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272E3A0820C8E4340035BD8B /* InstantPanGestureRecognizer.swift */; };
+		27337CF220D699CE000CBAFF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27337CF120D699CE000CBAFF /* CardView.swift */; };
+		27337CF420D69CBC000CBAFF /* HapticFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27337CF320D69CBC000CBAFF /* HapticFeedbackController.swift */; };
 		273BA31220C8876000D3C955 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BA31120C8876000D3C955 /* Injection.swift */; };
 		2744E23B20C8AEBB0054208C /* DiceHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */; };
 		2744E23D20C8B7FB0054208C /* ShakeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */; };
@@ -68,11 +70,13 @@
 		270F159320C8615300B1F231 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		2712614A20C900EE005FEEA9 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		271980F720D2E14300DF7297 /* PaintableUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintableUIImageView.swift; sourceTree = "<group>"; };
-		271980FA20D2E6B500DF7297 /* HapticFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackController.swift; sourceTree = "<group>"; };
+		271980FA20D2E6B500DF7297 /* DoubleDiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleDiceController.swift; sourceTree = "<group>"; };
 		271980FC20D2E87000DF7297 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		271980FE20D2E8A700DF7297 /* UDSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDSettingsRepository.swift; sourceTree = "<group>"; };
 		2719810320D2EE8B00DF7297 /* FeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackManager.swift; sourceTree = "<group>"; };
 		272E3A0820C8E4340035BD8B /* InstantPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		27337CF120D699CE000CBAFF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		27337CF320D69CBC000CBAFF /* HapticFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackController.swift; sourceTree = "<group>"; };
 		273BA31120C8876000D3C955 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceHistoryObserver.swift; sourceTree = "<group>"; };
 		2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDelegate.swift; sourceTree = "<group>"; };
@@ -189,7 +193,8 @@
 		271980F920D2E4E400DF7297 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				271980FA20D2E6B500DF7297 /* HapticFeedbackController.swift */,
+				27337CF320D69CBC000CBAFF /* HapticFeedbackController.swift */,
+				271980FA20D2E6B500DF7297 /* DoubleDiceController.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				27D3466F20C898AB006424BD /* DiceHistoryTableViewCell.swift */,
 				271980F720D2E14300DF7297 /* PaintableUIImageView.swift */,
+				27337CF120D699CE000CBAFF /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,7 +409,8 @@
 				27D3466D20C88B42006424BD /* UDDiceHistoryRepository.swift in Sources */,
 				270F158820C857DB00B1F231 /* DiceHistoryRepository.swift in Sources */,
 				27D3467020C898AB006424BD /* DiceHistoryTableViewCell.swift in Sources */,
-				271980FB20D2E6B500DF7297 /* HapticFeedbackController.swift in Sources */,
+				271980FB20D2E6B500DF7297 /* DoubleDiceController.swift in Sources */,
+				27337CF420D69CBC000CBAFF /* HapticFeedbackController.swift in Sources */,
 				270F159420C8615300B1F231 /* SettingViewController.swift in Sources */,
 				270F159020C85D6B00B1F231 /* DiceViewController.swift in Sources */,
 				2719810420D2EE8B00DF7297 /* FeedbackManager.swift in Sources */,
@@ -416,6 +423,7 @@
 				270F156220C855AE00B1F231 /* AppDelegate.swift in Sources */,
 				272E3A0920C8E4350035BD8B /* InstantPanGestureRecognizer.swift in Sources */,
 				271980F820D2E14300DF7297 /* PaintableUIImageView.swift in Sources */,
+				27337CF220D699CE000CBAFF /* CardView.swift in Sources */,
 				271980FF20D2E8A700DF7297 /* UDSettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

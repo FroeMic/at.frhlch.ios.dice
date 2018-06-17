@@ -10,5 +10,6 @@ import Foundation
 
 protocol SettingsRepository {
 
+    var numberOfDice: Int { get set }
     var shouldProvideHapticFeedback: Bool { get set }
 }
