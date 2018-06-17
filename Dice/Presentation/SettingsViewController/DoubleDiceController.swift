@@ -25,6 +25,6 @@ class DoubleDiceController: UIViewController {
     }
     
     @IBAction func didToggleSettingsButton(_ sender: UISwitch) {
-        settings.numberOfDice = 2
+        settings.numberOfDice = settingSwitch.isOn ? 2 : 1
     }
 }

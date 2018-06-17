@@ -30,6 +30,7 @@
 		272E3A0920C8E4350035BD8B /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272E3A0820C8E4340035BD8B /* InstantPanGestureRecognizer.swift */; };
 		27337CF220D699CE000CBAFF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27337CF120D699CE000CBAFF /* CardView.swift */; };
 		27337CF420D69CBC000CBAFF /* HapticFeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27337CF320D69CBC000CBAFF /* HapticFeedbackController.swift */; };
+		27337CF620D6A292000CBAFF /* DiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27337CF520D6A292000CBAFF /* DiceCollectionViewCell.swift */; };
 		273BA31220C8876000D3C955 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BA31120C8876000D3C955 /* Injection.swift */; };
 		2744E23B20C8AEBB0054208C /* DiceHistoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */; };
 		2744E23D20C8B7FB0054208C /* ShakeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */; };
@@ -77,6 +78,7 @@
 		272E3A0820C8E4340035BD8B /* InstantPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantPanGestureRecognizer.swift; sourceTree = "<group>"; };
 		27337CF120D699CE000CBAFF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		27337CF320D69CBC000CBAFF /* HapticFeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackController.swift; sourceTree = "<group>"; };
+		27337CF520D6A292000CBAFF /* DiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		273BA31120C8876000D3C955 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		2744E23A20C8AEBB0054208C /* DiceHistoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceHistoryObserver.swift; sourceTree = "<group>"; };
 		2744E23C20C8B7FB0054208C /* ShakeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				27D3466F20C898AB006424BD /* DiceHistoryTableViewCell.swift */,
 				271980F720D2E14300DF7297 /* PaintableUIImageView.swift */,
 				27337CF120D699CE000CBAFF /* CardView.swift */,
+				27337CF520D6A292000CBAFF /* DiceCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				2744E23B20C8AEBB0054208C /* DiceHistoryObserver.swift in Sources */,
 				270F158620C8579400B1F231 /* DiceResult.swift in Sources */,
 				270F156220C855AE00B1F231 /* AppDelegate.swift in Sources */,
+				27337CF620D6A292000CBAFF /* DiceCollectionViewCell.swift in Sources */,
 				272E3A0920C8E4350035BD8B /* InstantPanGestureRecognizer.swift in Sources */,
 				271980F820D2E14300DF7297 /* PaintableUIImageView.swift in Sources */,
 				27337CF220D699CE000CBAFF /* CardView.swift in Sources */,

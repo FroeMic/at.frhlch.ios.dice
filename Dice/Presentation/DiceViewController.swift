@@ -11,50 +11,125 @@ import Spring
 
 class DiceViewController: UIViewController {
     
-    @IBOutlet var diceImageView: SpringImageView!
+    fileprivate static let collectionViewReuseIdentifier = "DiceCollectionViewCell"
     
-    private let dice = Dice()
+    @IBOutlet var diceCollectionView: UICollectionView!
+    
+    private var dice: [Dice] = []
     private let feedbackManager = FeedbackManager()
+    private let settings = Injection.settings
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DiceViewController.rollDice))
-        diceImageView.addGestureRecognizer(gestureRecognizer)
+    
+        diceCollectionView.delegate = self
+        diceCollectionView.dataSource = self
+        diceCollectionView.register(DiceCollectionViewCell.self, forCellWithReuseIdentifier: DiceViewController.collectionViewReuseIdentifier)
         
         Injection.shakeDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dice = []
+        for _ in 0...settings.numberOfDice {
+            dice.append(Dice())
+        }
+        
+        configureCollectionViewLayout()
+        
+        diceCollectionView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        print(diceCollectionView.bounds.width)
+        configureCollectionViewLayout(animated: true)
+        super.viewDidLayoutSubviews()
+        print(diceCollectionView.bounds.width)
+        print("viewDidLayoutSubviews")
+        configureCollectionViewLayout(animated: true)
+//        configureCollectionViewLayout()
+    }
+    
+    
+    private func configureCollectionViewLayout(animated: Bool = false) {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10.0
+        layout.minimumInteritemSpacing = 10.0
+    
+        let availableWidth = diceCollectionView.bounds.width - layout.minimumInteritemSpacing * 1.0
+        
+        let cellWidth = availableWidth / 2.0
+        
+        layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
+        print(diceCollectionView.bounds.width)
+        print(layout.minimumInteritemSpacing)
+        print(cellWidth)
+        
+        diceCollectionView.setCollectionViewLayout(layout, animated: animated)
     }
 
 
     @objc
     fileprivate func rollDice() {
-        dice.roll()
-        updateDiceImage()
+        
+        for die in dice {
+            die.roll()
+        }
+        
+        for i in 0...dice.count {
+            if let cell = diceCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? DiceCollectionViewCell {
+                cell.updateDiceImage(dice[i].result.image, animated: true)
+            }
+        }
+        
+        print(settings.numberOfDice)
+        
+        // TODO: Update to save image for all possible results
+        if settings.numberOfDice == 1 {
+            let result = DiceResult(result: dice[0].result, time: Date())
+            Injection.diceHistoryStore.store(result)
+        }
+        
         feedbackManager.feedbackForDice(success: true)
-        saveDiceResult()
-    }
-    
-    private func updateDiceImage() {
-        diceImageView.animation = "pop"
-        diceImageView.curve = "easeIn"
-        diceImageView.force =  0.3
-        diceImageView.duration =  0.7
-        diceImageView.animate()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
-            self.diceImageView.image = self.dice.result.image
-        })
-    }
-    
-    private func saveDiceResult() {
-        let result = DiceResult(result: dice.result, time: Date())
-        Injection.diceHistoryStore.store(result)
     }
 }
 
+// MARK: ShakeDelegate
 extension DiceViewController: ShakeDelegate {
     
     func shakeEnded() {
         rollDice()
     }
 }
+
+extension DiceViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        rollDice()
+    }
+    
+}
+
+extension DiceViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dice.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiceViewController.collectionViewReuseIdentifier, for: indexPath)
+        
+        if let cell = cell as? DiceCollectionViewCell {
+            cell.updateDiceImage(dice[indexPath.row].result.image, animated: false)
+        }
+        
+        return cell
+        
+    }
+    
+    
+}
+
+
